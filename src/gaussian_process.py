@@ -69,7 +69,8 @@ class GaussianProcess:
 
         kernel_str = str(kernel)
 
-        numpoints = int(100.0/resolution)
+        domain_length = max(df['x'])-min(df['x'])
+        numpoints = int(domain_length/resolution)
 
         # Grid we will lay down for interpolation
         x1 = np.linspace(X[:,0].min(), X[:,0].max(), numpoints) 

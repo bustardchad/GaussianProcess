@@ -5,6 +5,7 @@ This directory contains source code for data processing (loading, cleaning, etc.
 Most of the heavy-lifting is done in the files *data_ingestion.py*, *explore_data.py*, and *gaussian_process.py*. 
 
 ### Project structure
+```bash
 |── README.md  
 ├── data  
 │   └── data.csv  
@@ -24,7 +25,7 @@ Most of the heavy-lifting is done in the files *data_ingestion.py*, *explore_dat
     ├── empty.csv  
     ├── non_empty.csv  
     └── test_data_loading.py  
-
+```
 ### Dependencies
 To install the necessary dependencies, type the following on the command line from the GaussianProcess directory:
 pip install -r requirements.txt

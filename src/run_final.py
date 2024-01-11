@@ -14,6 +14,12 @@ if __name__ == "__main__":
     # What measurement to interpolate
     name = "noise"
 
+    # Resolution of interpolating grid
+    resln = 0.001
+
+    # Initial length scale for kernel
+    init_ls = 0.01
+
     log_values = False
 
     ##### import and transform the dataset #####
@@ -51,8 +57,8 @@ if __name__ == "__main__":
     final_results = {}
 
     print("Fitting data")
-    kernel = 1.0 * Matern(length_scale=10.0, length_scale_bounds=(1.e-5, 1.e5), nu=1.0) 
-    X0, X1, Z, MSE, results_dict = GP.run_GPR(df_for_gp, name, kernel, 0.2, log=final_results)
+    kernel = 1.0 * Matern(length_scale=init_ls, length_scale_bounds=(1.e-5, 1.e5), nu=1.0) 
+    X0, X1, Z, MSE, results_dict = GP.run_GPR(df_for_gp, name, kernel, resln, log=final_results)
 
     title = 'final_mesh_plot.png'
     fig = GP.plot_mesh(df_for_gp, name, X0, X1, Z)
